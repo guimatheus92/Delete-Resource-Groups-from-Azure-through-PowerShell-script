@@ -15,14 +15,14 @@ Set-ExecutionPolicy Bypass -Scope Process
 Import-Module AzureRM
 
 # Account and password to be able to access
-$PBIAdminUPN = “youremail@email.com”
-$PBIAdminPW = “yourpassword”
+$UserEmail = “youremail@email.com”
+$UserPassword = “yourpassword”
 
 # Run the credential according to the login, password and tenant ID above
-$SecPasswd = ConvertTo-SecureString $PBIAdminPW -AsPlainText -Force
+$SecPasswd = ConvertTo-SecureString $UserPassword -AsPlainText -Force
 
 # Create credential
-$myCred = New-Object System.Management.Automation.PSCredential($PBIAdminUPN,$SecPasswd)
+$myCred = New-Object System.Management.Automation.PSCredential($UserEmail,$SecPasswd)
 
 # Get all resources group from Azure and delete those without confirmation
 #Get-AzureRmResourceGroup | Remove-AzureRmResourceGroup -verbose -Force
